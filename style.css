@@ -1,9 +1,9 @@
 body {
-  font-family: "Comic Sans MS", cursive, sans-serif;
+  font-family: "Courier New", Courier, monospace;
   background: #111;
   color: #fff;
   text-align: center;
-  padding: 30px; 
+  padding: 30px;
 }
 
 h1 {
@@ -27,8 +27,8 @@ button {
 }
 
 #startBtn {
-  background: #ff0055;
-  color: white;
+  background: #00ffff; /* changed from #ff0055 */
+  color: #111; /* dark text for contrast */
 }
 
 #choices button {
@@ -36,11 +36,11 @@ button {
   margin: 12px auto;
   background: #222;
   color: white;
-  border: 2px solid #ff0055;
+  border: 2px solid #00ffff; /* changed from #ff0055 */
 }
 
 #choices button:hover {
-  background: #ff0055;
+  background: #00ffff; /* changed from #ff0055 */
 }
 
 #feedback {
