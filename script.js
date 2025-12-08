@@ -4,19 +4,12 @@
 
 // ✅ ALL SOUNDS (EDIT HERE ONLY)
 const soundLibrary = [
-  //  Microwave
   { name: "Microwave (Done)", file: "sounds/microwavedone.mp3" },
   { name: "Microwave (Input Time)", file: "sounds/microwavetimein.mp3" },
-
-  //  Cutter
   { name: "Cutter (Cutting)", file: "sounds/cuttercutting.mp3" },
   { name: "Cutter (Error)", file: "sounds/cuttererror.mp3" },
   { name: "Cutter (Joe)", file: "sounds/cutterjoe.mp3" },
-
-  //  Air / Blower
   { name: "Air Blow Gun", file: "sounds/blower.mp3" },
-
-  //  Barcode / Printing / Scanning
   { name: "Barcode Scanner", file: "sounds/barcodescanner.mp3" },
   { name: "Printer", file: "sounds/printer.mp3" },
   { name: "Scanner (Scanning)", file: "sounds/scannerscanning.mp3" },
@@ -75,7 +68,6 @@ function renderLeaderboard(highlightIndex = -1) {
   });
 }
 
-
 // ✅ BUTTONS
 startBtn.onclick = startGame;
 replayBtn.onclick = replaySound;
@@ -88,6 +80,9 @@ function setDifficulty(level) {
 
 // ✅ GAME FLOW
 function startGame() {
+  // Enable gameplay button colors
+  document.body.classList.add('playing');
+
   roundCount = 0;
   totalTime = 0;
   availableSounds = [...soundLibrary]; // ✅ NO REPEATS
@@ -183,6 +178,9 @@ function checkAnswer(choice) {
 
 // ✅ END GAME
 function endGame() {
+  // Disable gameplay button colors
+  document.body.classList.remove('playing');
+
   choicesDiv.innerHTML = "";
   roundInfo.textContent = "GAME OVER";
   timerText.textContent = "";
@@ -192,20 +190,20 @@ function endGame() {
   if (!name) return;
 
   leaderboard.push({
-  name: name.slice(0, 12),
-  time: parseFloat(totalTime.toFixed(2)),
-  difficulty: getDifficultyName()
-});
+    name: name.slice(0, 12),
+    time: parseFloat(totalTime.toFixed(2)),
+    difficulty: getDifficultyName()
+  });
   leaderboard.sort((a, b) => a.time - b.time);
-leaderboard = leaderboard.slice(0, 10);
+  leaderboard = leaderboard.slice(0, 10);
 
-const newIndex = leaderboard.findIndex(
-  s => s.name === name.slice(0, 12) &&
-       s.time === parseFloat(totalTime.toFixed(2))
-);
+  const newIndex = leaderboard.findIndex(
+    s => s.name === name.slice(0, 12) &&
+         s.time === parseFloat(totalTime.toFixed(2))
+  );
 
-localStorage.setItem("wtbLeaderboard", JSON.stringify(leaderboard));
-renderLeaderboard(newIndex);
+  localStorage.setItem("wtbLeaderboard", JSON.stringify(leaderboard));
+  renderLeaderboard(newIndex);
 }
 
 // ✅ LEADERBOARD RENDER
@@ -253,3 +251,17 @@ function getDifficultyName() {
   if (difficulty === difficulties.hard) return "Hard";
   return "Normal";
 }
+
+/****************************************
+   PIXEL CURSOR
+****************************************/
+
+const cursor = document.createElement('div');
+cursor.classList.add('pixel-cursor');
+document.body.appendChild(cursor);
+
+document.addEventListener('mousemove', e => {
+  cursor.style.left = e.clientX + 'px';
+  cursor.style.top = e.clientY + 'px';
+});
+
