@@ -1,0 +1,55 @@
+body {
+  font-family: Arial, sans-serif;
+  background: #111;
+  color: #fff;
+  text-align: center;
+  padding: 30px;
+}
+
+h1 {
+  font-size: 36px;
+  margin-bottom: 5px;
+}
+
+.subtitle {
+  color: #aaa;
+  margin-bottom: 20px;
+}
+
+button {
+  padding: 14px;
+  font-size: 18px;
+  margin: 10px;
+  width: 240px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+}
+
+#startBtn {
+  background: #ff0055;
+  color: white;
+}
+
+#choices button {
+  display: block;
+  margin: 12px auto;
+  background: #222;
+  color: white;
+  border: 2px solid #ff0055;
+}
+
+#choices button:hover {
+  background: #ff0055;
+}
+
+#feedback {
+  font-size: 24px;
+  font-weight: bold;
+  margin-top: 20px;
+}
+
+#time {
+  font-size: 18px;
+  color: #ccc;
+}

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>WHAT THE BEEP?!</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <h1> WHAT THE BEEP?!</h1>
+  <p class="subtitle">5 sounds. One shot. Be fast.</p>
+
+<div id="difficulty">
+  <p>Choose difficulty:</p>
+  <button onclick="setDifficulty('easy')">🟢 Easy</button>
+  <button onclick="setDifficulty('normal')">🟡 Normal</button>
+  <button onclick="setDifficulty('hard')">🔴 Hard</button>
+</div>
+
+  <button id="startBtn">▶ START GAME</button>
+<button id="replayBtn"> REPLAY SOUND</button>
+
+  <p id="roundInfo"></p>
+<p id="timer"></p>
+
+  <div id="choices"></div>
+
+  <p id="feedback"></p>
+  <p id="time"></p>
+
+  <h2> Fastest Beepers</h2>
+  <ol id="leaderboard"></ol>
+
+<button onclick="clearLeaderboard()">🗑 Clear Leaderboard</button>
+
+  <script src="script.js"></script>
+</body>
+</html>
