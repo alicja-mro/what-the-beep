@@ -1,5 +1,9 @@
-body {
+/* Apply Courier to everything */
+* {
   font-family: "Courier New", Courier, monospace;
+}
+
+body {
   background: #111;
   color: #fff;
   text-align: center;
@@ -53,3 +57,4 @@ button {
   font-size: 18px;
   color: #ccc;
 }
+
