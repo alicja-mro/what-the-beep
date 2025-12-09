@@ -1,3 +1,27 @@
+<script type="module">
+  // Import the functions you need from the SDKs you need
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/12.6.0/firebase-app.js";
+  import { getAnalytics } from "https://www.gstatic.com/firebasejs/12.6.0/firebase-analytics.js";
+  // TODO: Add SDKs for Firebase products that you want to use
+  // https://firebase.google.com/docs/web/setup#available-libraries
+
+  // Your web app's Firebase configuration
+  // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+  const firebaseConfig = {
+    apiKey: "AIzaSyB__tnPafOuGaYCcRnh4RLnkqxddDqfRBI",
+    authDomain: "what-the-beep-scores.firebaseapp.com",
+    projectId: "what-the-beep-scores",
+    storageBucket: "what-the-beep-scores.firebasestorage.app",
+    messagingSenderId: "771090658342",
+    appId: "1:771090658342:web:96376b1a13e89a391a22e7",
+    measurementId: "G-YR5HPWRMK4"
+  };
+
+  // Initialize Firebase
+  const app = initializeApp(firebaseConfig);
+  const analytics = getAnalytics(app);
+</script>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
