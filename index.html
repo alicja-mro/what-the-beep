@@ -1,32 +1,3 @@
-<script type="module">
-  // Import the functions you need from the SDKs you need
-  import { initializeApp } from "https://www.gstatic.com/firebasejs/12.6.0/firebase-app.js";
-  import { getAnalytics } from "https://www.gstatic.com/firebasejs/12.6.0/firebase-analytics.js";
-  // TODO: Add SDKs for Firebase products that you want to use
-  // https://firebase.google.com/docs/web/setup#available-libraries
-
-  // Your web app's Firebase configuration
-  // For Firebase JS SDK v7.20.0 and later, measurementId is optional
-  const firebaseConfig = {
-    apiKey: "AIzaSyB__tnPafOuGaYCcRnh4RLnkqxddDqfRBI",
-    authDomain: "what-the-beep-scores.firebaseapp.com",
-    projectId: "what-the-beep-scores",
-    storageBucket: "what-the-beep-scores.firebasestorage.app",
-    messagingSenderId: "771090658342",
-    appId: "1:771090658342:web:96376b1a13e89a391a22e7",
-    measurementId: "G-YR5HPWRMK4"
-  };
-
-  // Initialize Firebase
-  const app = initializeApp(firebaseConfig);
-  const analytics = getAnalytics(app);
-</script>
-
-<!-- Firebase App (core) -->
-<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
-<!-- Firebase Realtime Database -->
-<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-database-compat.js"></script>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -34,35 +5,55 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>WHAT THE BEEP?!</title>
   <link rel="stylesheet" href="style.css" />
+  
+  <!-- Firebase App (core) -->
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+  <!-- Firebase Realtime Database -->
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-database-compat.js"></script>
+
+  <!-- Your Firebase configuration -->
+  <script>
+    // Paste the configuration you got from Firebase here
+    const firebaseConfig = {
+      apiKey: "AIzaSyB__tnPafOuGaYCcRnh4RLnkqxddDqfRBI",
+      authDomain: "what-the-beep-scores.firebaseapp.com",
+      projectId: "what-the-beep-scores",
+      storageBucket: "what-the-beep-scores.firebasestorage.app",
+      messagingSenderId: "771090658342",
+      appId: "1:771090658342:web:96376b1a13e89a391a22e7",
+      measurementId: "G-YR5HPWRMK4"
+    };
+    firebase.initializeApp(firebaseConfig);
+  </script>
 </head>
 <body>
 
-  <h1> WHAT THE BEEP?!</h1>
+  <h1>WHAT THE BEEP?!</h1>
   <p class="subtitle">5 sounds... 5 rounds!</p>
 
-<div id="difficulty">
-  <p>Choose difficulty:</p>
-  <button onclick="setDifficulty('easy')">🟢 Easy</button>
-  <button onclick="setDifficulty('normal')">🟡 Normal</button>
-  <button onclick="setDifficulty('hard')">🔴 Hard</button>
-</div>
+  <div id="difficulty">
+    <p>Choose difficulty:</p>
+    <button onclick="setDifficulty('easy')">🟢 Easy</button>
+    <button onclick="setDifficulty('normal')">🟡 Normal</button>
+    <button onclick="setDifficulty('hard')">🔴 Hard</button>
+  </div>
 
   <button id="startBtn">▶ START GAME</button>
-<button id="replayBtn"> REPLAY SOUND</button>
+  <button id="replayBtn">REPLAY SOUND</button>
 
   <p id="roundInfo"></p>
-<p id="timer"></p>
+  <p id="timer"></p>
 
   <div id="choices"></div>
 
   <p id="feedback"></p>
   <p id="time"></p>
 
-  <h2> Fastest Beepers</h2>
+  <h2>Fastest Beepers</h2>
   <ol id="leaderboard"></ol>
+  <button onclick="clearLeaderboard()">Clear Leaderboard</button>
 
-<button onclick="clearLeaderboard()"> Clear Leaderboard</button>
-
+  <!-- Your game script -->
   <script src="script.js"></script>
 </body>
 </html>
