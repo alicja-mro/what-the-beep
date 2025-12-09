@@ -1,6 +1,11 @@
 /****************************************
   WHAT THE BEEP?! — FULL FEATURE BUILD
 ****************************************/
+
+// Initialize Firebase
+firebase.initializeApp(firebaseConfig);
+const database = firebase.database();
+
 <script type="module">
   // Import the functions you need from the SDKs you need
   import { initializeApp } from "https://www.gstatic.com/firebasejs/12.6.0/firebase-app.js";
