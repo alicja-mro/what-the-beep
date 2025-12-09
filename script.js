@@ -1,9 +1,3 @@
-/****************************************
-  WHAT THE BEEP?! — FULL FEATURE BUILD
-****************************************/
-
-// ===== FIREBASE =====
-// Make sure your firebaseConfig is defined in index.html (from Firebase console)
 const database = firebase.database(); // Realtime Database reference
 
 // ===== ALL SOUNDS =====
