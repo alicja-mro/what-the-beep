@@ -231,11 +231,11 @@ function endGame() {
   lastPlayerName = name.trim().slice(0, 12); // Store cleaned name for next game
 
   const newScore = {
-    name: lastPlayerName,
-    time: parseFloat(totalTime.toFixed(2)),
-    difficulty: getDifficultyName(),
-    timestamp: firebase.database.ServerValue.TIMESTAMP // Firebase server timestamp
-  };
+  name: lastPlayerName,
+  time: parseFloat(totalTime.toFixed(2)),
+  difficulty: getDifficultyName(),
+  timestamp: Date.now() // ✅ Use Date.now() instead of ServerValue.TIMESTAMP
+};
 
   // Push the new score to Firebase Realtime Database
   const newScoreRef = leaderboardRef.push();
