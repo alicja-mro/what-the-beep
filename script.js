@@ -165,11 +165,11 @@ function nextRound() {
 // ✅ COUNTDOWN TIMER
 function startCountdown() {
   secondsLeft = difficulty.time;
-  timerText.textContent = `⏳ ${secondsLeft}s`;
+  timerText.textContent = ` ${secondsLeft}s`;
 
   timerInterval = setInterval(() => {
     secondsLeft--;
-    timerText.textContent = `⏳ ${secondsLeft}s`;
+    timerText.textContent = ` ${secondsLeft}s`;
 
     if (secondsLeft <= 0) {
       clearInterval(timerInterval);
@@ -181,7 +181,7 @@ function startCountdown() {
 // ✅ TIMEOUT (Completed)
 function timeout() {
   audio.pause();
-  feedback.textContent = `⏰ Time's up! +${difficulty.penalty}s`;
+  feedback.textContent = ` Time's up! +${difficulty.penalty}s`;
   totalTime += difficulty.penalty;
   setTimeout(nextRound, 900); // Move to next round after a short delay
 }
