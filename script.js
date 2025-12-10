@@ -234,7 +234,7 @@ function endGame() {
   name: lastPlayerName,
   time: parseFloat(totalTime.toFixed(2)),
   difficulty: getDifficultyName(),
-  timestamp: Date.now() // ✅ Use Date.now() instead of ServerValue.TIMESTAMP
+  timestamp: Date.now() 
 };
 
   // Push the new score to Firebase Realtime Database
