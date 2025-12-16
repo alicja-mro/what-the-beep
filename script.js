@@ -234,6 +234,7 @@ function endGame() {
   const name = prompt("Enter your name:");
   if (!name) return;
 
+  // This is the correct, single declaration and assignment for newScore
   const newScore = {
     name: name.slice(0, 12),
     time: parseFloat(totalTime.toFixed(2)),
@@ -241,26 +242,8 @@ function endGame() {
     timestamp: Date.now() // Client-side timestamp. For true server-side timestamp, you'd import `ServerValue` from 'firebase/database'.
   };
 
-  const newScore = {
-    name: name.slice(0, 12),
-    time: parseFloat(totalTime.toFixed(2)),
-    difficulty: getDifficultyName(),
-    timestamp: Date.now()
-  };
+  console.log("Attempting to push score:", newScore); 
 
-  console.log("Attempting to push score:", newScore); // <--- Add this line!
-
-  // Push the new score to Firebase Realtime Database
-  push(scoresRef, newScore)
-    .then(() => {
-      console.log("Score added to Firebase successfully!");
-      // Re-render the leaderboard, highlighting the new score
-      renderLeaderboard(newScore.name, newScore.time);
-    })
-    .catch((error) => {
-      console.error("Error adding score to Firebase:", error);
-    });
-  
   // Push the new score to Firebase Realtime Database
   push(scoresRef, newScore)
     .then(() => {
@@ -331,5 +314,6 @@ window.clearLeaderboard = clearLeaderboard;
 // Initial render of the leaderboard when the page loads
 renderLeaderboard();
 
-// Initial render of the leaderboard when the page loads
-renderLeaderboard();
+// Removed duplicate renderLeaderboard() call
+// renderLeaderboard();
+
