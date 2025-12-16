@@ -32,11 +32,12 @@
   <h2> Fastest Beepers</h2>
   <ol id="leaderboard"></ol>
 
-  <!-- Removed the local clear leaderboard button -->
+<button onclick="clearLeaderboard()"> Clear Leaderboard</button>
 
-  <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app-compat.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-database-compat.js"></script>
+  <!-- Firebase SDKs -->
+  <script type="module" src="https://www.gstatic.com/firebasejs/9.1.0/firebase-app.js"></script>
+  <script type="module" src="https://www.gstatic.com/firebasejs/9.1.0/firebase-database.js"></script>
   <!-- Your game script -->
-  <script src="script.js"></script>
+  <script type="module" src="script.js"></script>
 </body>
 </html>
