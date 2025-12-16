@@ -302,6 +302,14 @@ document.addEventListener('mousemove', e => {
   cursor.style.top = e.clientY + 'px';
 });
 
+// Add these lines at the end of script.js to make functions globally accessible
+window.setDifficulty = setDifficulty;
+window.startGame = startGame;
+window.replaySound = replaySound;
+window.clearLeaderboard = clearLeaderboard;
+
+// Initial render of the leaderboard when the page loads
+renderLeaderboard();
 
 // Initial render of the leaderboard when the page loads
 renderLeaderboard();
