@@ -289,14 +289,6 @@ function shuffle(arr) {
   }
 }
 
-function clearLeaderboard() {
-  if (!confirm("Clear all scores?")) return;
-
-  remove(scoresRef)
-    .then(() => renderLeaderboard())
-    .catch(err => console.error("Error clearing leaderboard:", err));
-}
-
 function getDifficultyName() {
   if (difficulty === difficulties.easy) return "Easy";
   if (difficulty === difficulties.hard) return "Hard";
