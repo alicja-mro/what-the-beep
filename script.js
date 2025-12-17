@@ -35,7 +35,14 @@ const soundLibrary = [
   { name: "Barcode Scanner", file: "sounds/barcodescanner.mp3" },
   { name: "Printer", file: "sounds/printer.mp3" },
   { name: "Scanner (Scanning)", file: "sounds/scannerscanning.mp3" },
-  { name: "Scanner (Stuck)", file: "sounds/scannerstuck.mp3" }
+  { name: "Scanner (Stuck)", file: "sounds/scannerstuck.mp3" },
+  { name: "Chemicals Needed", file: "sounds/chemicals.mp3" },
+{ name: "Crumpet Cooking", file: "sounds/crumpetcooking.mp3" },
+{ name: "Developer Ready", file: "sounds/devready.mp3" },
+{ name: "Egg", file: "sounds/egg.mp3" },
+{ name: "Christmas Lights Switch On", file: "sounds/lightson.mp3" },
+{ name: "Loud Scanner Hum", file: "sounds/loudscanner.mp3" },
+{ name: "One Crumpet One Bread", file: "sounds/onecrumpetonebread.mp3" },
 ];
 
 // ✅ DIFFICULTY SETTINGS
