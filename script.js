@@ -311,3 +311,27 @@ window.clearLeaderboard = clearLeaderboard;
 
 // -------------------- Initial leaderboard render --------------------
 renderLeaderboard();
+
+/****************************************
+  DESKTOP-ONLY PIXEL CURSOR
+****************************************/
+if (!('ontouchstart' in window)) { // desktop only
+  const cursor = document.createElement('div');
+  cursor.classList.add('pixel-cursor');
+  document.body.appendChild(cursor);
+
+  // Make sure it doesn't block clicks
+  cursor.style.position = 'absolute';
+  cursor.style.width = '10px';
+  cursor.style.height = '10px';
+  cursor.style.background = 'red'; // change color if you like
+  cursor.style.borderRadius = '50%';
+  cursor.style.pointerEvents = 'none';
+  cursor.style.zIndex = 1000;
+
+  document.addEventListener('mousemove', e => {
+    cursor.style.left = e.clientX + 'px';
+    cursor.style.top = e.clientY + 'px';
+  });
+}
+
