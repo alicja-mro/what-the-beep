@@ -337,6 +337,18 @@ function getDifficultyName() {
   if (difficulty === difficulties.hard) return "Hard";
   return "Normal";
 }
+  // Only add pixel cursor on non-touch devices
+if (!('ontouchstart' in window)) {
+  const cursor = document.createElement('div');
+  cursor.classList.add('pixel-cursor');
+  document.body.appendChild(cursor);
+
+  document.addEventListener('mousemove', e => {
+    cursor.style.left = e.clientX + 'px';
+    cursor.style.top = e.clientY + 'px';
+  });
+}
+
 
 // Add these lines at the end of script.js to make functions globally accessible
 window.setDifficulty = setDifficulty;
