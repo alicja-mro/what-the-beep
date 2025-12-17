@@ -2,9 +2,17 @@
   WHAT THE BEEP?! — FULL FEATURE BUILD
 ****************************************/
 
-// ✅ Firebase Imports
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.1.0/firebase-app.js";
-import { getDatabase, ref, push, onValue, remove, query, orderByChild, limitToFirst } from "https://www.gstatic.com/firebasejs/9.1.0/firebase-database.js";
+import {
+  getDatabase,
+  ref,
+  push,
+  get,
+  remove,
+  query,
+  orderByChild,
+  limitToFirst
+} from "https://www.gstatic.com/firebasejs/9.1.0/firebase-database.js";
 
 // ✅ Firebase Configuration
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
@@ -253,17 +261,48 @@ function endGame() {
 
   // Push the new score to Firebase Realtime Database
   push(scoresRef, newScore)
-    .then(() => {
-      console.log("Score added to Firebase successfully!");
-      // Re-render the leaderboard, highlighting the new score
-      renderLeaderboard(newScore.name, newScore.time);
-    })
-    .catch((error) => {
-      console.error("Error adding score to Firebase:", error);
-    });
-}
+  .then(async () => {
+    console.log("Score added to Firebase successfully!");
+
+    await trimLeaderboardToTop10();
+
+    renderLeaderboard(newScore.name, newScore.time);
+  })
+  .catch((error) => {
+    console.error("Error adding score to Firebase:", error);
+  });
+
 
 // ✅ HELPERS
+async function trimLeaderboardToTop10() {
+  const snapshot = await get(scoresRef);
+  if (!snapshot.exists()) return;
+
+  const scores = [];
+
+  snapshot.forEach(child => {
+    scores.push({
+      id: child.key,
+      ...child.val()
+    });
+  });
+
+  // If 10 or fewer scores, do nothing
+  if (scores.length <= 10) return;
+
+  // Sort fastest first
+  scores.sort((a, b) => a.time - b.time);
+
+  // Delete everything after the top 10
+  const toDelete = scores.slice(10);
+
+  await Promise.all(
+    toDelete.map(score =>
+      remove(ref(database, `leaderboard/scores/${score.id}`))
+    )
+  );
+}
+
 function buildChoices(correct, amount) {
   const names = soundLibrary.map(s => s.name).filter(n => n !== correct);
   shuffle(names);
