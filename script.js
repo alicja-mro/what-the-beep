@@ -299,7 +299,6 @@ function getDifficultyName() {
 window.setDifficulty = setDifficulty;
 window.startGame = startGame;
 window.replaySound = replaySound;
-window.clearLeaderboard = clearLeaderboard;
 
 // -------------------- Initial leaderboard render --------------------
 renderLeaderboard();
